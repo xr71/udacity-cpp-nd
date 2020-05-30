@@ -3,4 +3,4 @@ project(p1_foundations)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(p1_foundations main.cpp)
+add_executable(p1_foundations main.cpp store_grid.cpp)

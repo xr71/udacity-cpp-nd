@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/music/devprojects/cppdev/udacity_cpp_nd/p1_foundations/main.cpp
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_foundations/main.cpp
 iostream
+-
+string
+-
+vector
 -
 
