@@ -1,0 +1,3 @@
+C:/Users/music/devprojects/cppdev/udacity_cpp_nd/p1_foundations/cmake-build-debug/CMakeFiles/p1_foundations.dir
+C:/Users/music/devprojects/cppdev/udacity_cpp_nd/p1_foundations/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/music/devprojects/cppdev/udacity_cpp_nd/p1_foundations/cmake-build-debug/CMakeFiles/rebuild_cache.dir
