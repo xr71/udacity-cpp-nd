@@ -84,7 +84,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_foundations/a_star_search.cpp">
+			<Option target="p1_foundations"/>
+		</Unit>
 		<Unit filename="/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_foundations/main.cpp">
+			<Option target="p1_foundations"/>
+		</Unit>
+		<Unit filename="/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_foundations/practice_ref.cpp">
 			<Option target="p1_foundations"/>
 		</Unit>
 		<Unit filename="/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_foundations/store_grid.cpp">

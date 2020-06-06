@@ -6,11 +6,35 @@
 
 #IncludeRegexTransform: 
 
-/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_foundations/main.cpp
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_foundations/a_star_search.cpp
+fstream
+-
 iostream
+-
+sstream
 -
 string
 -
 vector
 -
+test.cpp
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_foundations/test.cpp
+
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_foundations/practice_ref.cpp
+iostream
+-
+
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_foundations/store_grid.cpp
+fstream
+-
+iostream
+-
+sstream
+-
+string
+-
+vector
+-
+
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_foundations/test.cpp
 

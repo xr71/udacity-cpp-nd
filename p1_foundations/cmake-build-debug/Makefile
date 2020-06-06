@@ -123,6 +123,33 @@ p1_foundations/fast:
 	$(MAKE) -f CMakeFiles/p1_foundations.dir/build.make CMakeFiles/p1_foundations.dir/build
 .PHONY : p1_foundations/fast
 
+a_star_search.o: a_star_search.cpp.o
+
+.PHONY : a_star_search.o
+
+# target to build an object file
+a_star_search.cpp.o:
+	$(MAKE) -f CMakeFiles/p1_foundations.dir/build.make CMakeFiles/p1_foundations.dir/a_star_search.cpp.o
+.PHONY : a_star_search.cpp.o
+
+a_star_search.i: a_star_search.cpp.i
+
+.PHONY : a_star_search.i
+
+# target to preprocess a source file
+a_star_search.cpp.i:
+	$(MAKE) -f CMakeFiles/p1_foundations.dir/build.make CMakeFiles/p1_foundations.dir/a_star_search.cpp.i
+.PHONY : a_star_search.cpp.i
+
+a_star_search.s: a_star_search.cpp.s
+
+.PHONY : a_star_search.s
+
+# target to generate assembly for a file
+a_star_search.cpp.s:
+	$(MAKE) -f CMakeFiles/p1_foundations.dir/build.make CMakeFiles/p1_foundations.dir/a_star_search.cpp.s
+.PHONY : a_star_search.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -149,6 +176,33 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) -f CMakeFiles/p1_foundations.dir/build.make CMakeFiles/p1_foundations.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+practice_ref.o: practice_ref.cpp.o
+
+.PHONY : practice_ref.o
+
+# target to build an object file
+practice_ref.cpp.o:
+	$(MAKE) -f CMakeFiles/p1_foundations.dir/build.make CMakeFiles/p1_foundations.dir/practice_ref.cpp.o
+.PHONY : practice_ref.cpp.o
+
+practice_ref.i: practice_ref.cpp.i
+
+.PHONY : practice_ref.i
+
+# target to preprocess a source file
+practice_ref.cpp.i:
+	$(MAKE) -f CMakeFiles/p1_foundations.dir/build.make CMakeFiles/p1_foundations.dir/practice_ref.cpp.i
+.PHONY : practice_ref.cpp.i
+
+practice_ref.s: practice_ref.cpp.s
+
+.PHONY : practice_ref.s
+
+# target to generate assembly for a file
+practice_ref.cpp.s:
+	$(MAKE) -f CMakeFiles/p1_foundations.dir/build.make CMakeFiles/p1_foundations.dir/practice_ref.cpp.s
+.PHONY : practice_ref.cpp.s
 
 store_grid.o: store_grid.cpp.o
 
@@ -186,9 +240,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... p1_foundations"
+	@echo "... a_star_search.o"
+	@echo "... a_star_search.i"
+	@echo "... a_star_search.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... practice_ref.o"
+	@echo "... practice_ref.i"
+	@echo "... practice_ref.s"
 	@echo "... store_grid.o"
 	@echo "... store_grid.i"
 	@echo "... store_grid.s"

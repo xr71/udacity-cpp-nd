@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/p1_foundations.dir/a_star_search.cpp.o"
   "CMakeFiles/p1_foundations.dir/main.cpp.o"
+  "CMakeFiles/p1_foundations.dir/practice_ref.cpp.o"
   "CMakeFiles/p1_foundations.dir/store_grid.cpp.o"
   "p1_foundations"
   "p1_foundations.pdb"
