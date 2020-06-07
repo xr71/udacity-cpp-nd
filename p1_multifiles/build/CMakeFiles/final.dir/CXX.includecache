@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_multifiles/04_increment_and_sum.cpp
+vect_add_one.h
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_multifiles/vect_add_one.h
+
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_multifiles/04_main.cpp
+iostream
+-
+vector
+-
+increment_and_sum.h
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_multifiles/increment_and_sum.h
+
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_multifiles/04_vect_add_one.cpp
+vect_add_one.h
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_multifiles/vect_add_one.h
+
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_multifiles/increment_and_sum.h
+vector
+-
+
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p1_multifiles/vect_add_one.h
+vector
+-
+
