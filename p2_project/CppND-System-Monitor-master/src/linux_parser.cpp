@@ -1,3 +1,4 @@
+#include <iostream>
 #include <dirent.h>
 #include <unistd.h>
 #include <string>
@@ -67,7 +68,6 @@ vector<int> LinuxParser::Pids() {
 // TODO: Read and return the system memory utilization
 float LinuxParser::MemoryUtilization() { return 0.0; }
 
-// TODO: Read and return the system uptime
 long LinuxParser::UpTime() {
     std::ifstream stream(kProcDirectory + kUptimeFilename);
     std::string line, s_uptime, s_idletime;
@@ -103,7 +103,29 @@ long LinuxParser::IdleJiffies() { return 0; }
 vector<string> LinuxParser::CpuUtilization() { return {}; }
 
 // TODO: Read and return the total number of processes
-int LinuxParser::TotalProcesses() { return 0; }
+int LinuxParser::TotalProcesses() {
+    // we have a file to read from /proc/stat
+    // the key is processes
+    // value is an int number after a space after processes
+
+    std::ifstream stream(kProcDirectory + kStatFilename);
+
+    if (stream.is_open()) {
+        std::string line;
+        std::string key, value;
+
+        while (std::getline(stream, line)) {
+            std::istringstream linestream(line);
+
+            while(linestream >> key >> value) {
+                if (key == "processes") {
+                    return std::stoi(value);
+                }
+            }
+        }
+    }
+    return 0;
+}
 
 // TODO: Read and return the number of running processes
 int LinuxParser::RunningProcesses() { return 0; }

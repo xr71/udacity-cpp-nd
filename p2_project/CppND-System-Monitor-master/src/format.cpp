@@ -14,7 +14,7 @@ string Format::ElapsedTime(long second) {
     int hours = minutes / 60;
     int sec_remaining = second % 60;
 
-    char output[20];
+    char output[9];
     std::sprintf(output, "%02i:%02i:%02i", hours, min_remaining, sec_remaining);
 
     return output;
