@@ -11,6 +11,7 @@ using std::string;
 using std::to_string;
 using std::vector;
 
+
 string LinuxParser::OperatingSystem() {
   string line;
   string key;
@@ -33,6 +34,7 @@ string LinuxParser::OperatingSystem() {
   return value;
 }
 
+
 string LinuxParser::Kernel() {
   string os, version, kernel;
   string line;
@@ -44,6 +46,7 @@ string LinuxParser::Kernel() {
   }
   return kernel;
 }
+
 
 // BONUS: Update this to use std::filesystem
 vector<int> LinuxParser::Pids() {
@@ -67,6 +70,7 @@ vector<int> LinuxParser::Pids() {
 
 // TODO: Read and return the system memory utilization
 float LinuxParser::MemoryUtilization() { return 0.0; }
+
 
 long LinuxParser::UpTime() {
     std::ifstream stream(kProcDirectory + kUptimeFilename);
@@ -93,14 +97,69 @@ long LinuxParser::Jiffies() { return 0; }
 // REMOVE: [[maybe_unused]] once you define the function
 long LinuxParser::ActiveJiffies(int pid[[maybe_unused]]) { return 0; }
 
-// TODO: Read and return the number of active jiffies for the system
-long LinuxParser::ActiveJiffies() { return 0; }
 
-// TODO: Read and return the number of idle jiffies for the system
-long LinuxParser::IdleJiffies() { return 0; }
+long LinuxParser::ActiveJiffies() {
+    vector<string> cpuvalues = CpuUtilization();
 
-// TODO: Read and return CPU utilization
-vector<string> LinuxParser::CpuUtilization() { return {}; }
+    long user = std::stol(cpuvalues[0]);
+    long nice = std::stol(cpuvalues[1]);
+    long system = std::stol(cpuvalues[2]);
+    long irq = std::stol(cpuvalues[5]);
+    long softirq = std::stol(cpuvalues[6]);
+    long steal = std::stol(cpuvalues[7]);
+
+    return user + nice + system + irq + softirq + steal;
+}
+
+
+long LinuxParser::IdleJiffies() {
+    vector<string> cpuvalues = CpuUtilization();
+
+    /*
+     * 0 user
+     * 1 nice
+     * 2 system
+     * 3 idle
+     * 4 iowait
+     * 5 irq
+     * 6 softirq
+     * 7 steal
+     * 8 guest
+     * 9 guestnice
+     */
+
+    long idle = std::stol(cpuvalues[3]);
+    long iowait = std::stol(cpuvalues[4]);
+
+    return idle + iowait;
+}
+
+
+vector<string> LinuxParser::CpuUtilization() {
+
+    std::string line;
+    std::string key;
+    std::vector<std::string> cpuvalues;
+
+    std::ifstream stream(kProcDirectory + kStatFilename);
+
+    if (stream.is_open()) {
+        // aggregated cpu info is in first line
+        std::getline(stream, line);
+
+        std::istringstream linestream(line);
+
+        while(linestream >> key) {
+            if (key != "cpu") {
+                cpuvalues.push_back(key);
+            }
+        }
+
+        return cpuvalues;
+    }
+
+    return cpuvalues;
+}
 
 // TODO: Read and return the total number of processes
 int LinuxParser::TotalProcesses() {
@@ -128,7 +187,26 @@ int LinuxParser::TotalProcesses() {
 }
 
 // TODO: Read and return the number of running processes
-int LinuxParser::RunningProcesses() { return 0; }
+int LinuxParser::RunningProcesses() {
+    std::ifstream stream(kProcDirectory + kStatFilename);
+
+    if (stream.is_open()) {
+        std::string line;
+        std::string key, value;
+
+        while (std::getline(stream, line)) {
+            std::istringstream linestream(line);
+
+            while(linestream >> key >> value) {
+                if (key == "procs_running") {
+                    return std::stoi(value);
+                }
+            }
+        }
+    }
+
+    return 0;
+}
 
 // TODO: Read and return the command associated with a process
 // REMOVE: [[maybe_unused]] once you define the function

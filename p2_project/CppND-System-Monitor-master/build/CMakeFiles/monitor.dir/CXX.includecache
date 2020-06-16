@@ -14,17 +14,13 @@ regex
 string
 -
 
-/home/xuren/devprojects/cppdev/udacity-cpp-nd/p2_project/CppND-System-Monitor-master/src/linux_parser.cpp
-iostream
--
-dirent.h
--
-unistd.h
--
-string
--
-vector
--
+../include/processor.h
+
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p2_project/CppND-System-Monitor-master/src/processor.cpp
+processor.h
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p2_project/CppND-System-Monitor-master/src/processor.h
 linux_parser.h
 /home/xuren/devprojects/cppdev/udacity-cpp-nd/p2_project/CppND-System-Monitor-master/src/linux_parser.h
+iostream
+-
 
