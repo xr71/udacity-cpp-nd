@@ -28,4 +28,46 @@ When memory is heavily fragmented however, memory allocations will likely take l
 
 So far we only considered primitive data types, whose storage space requirement was already fixed at compile time and could be scheduled with the building of the program executable. However, it is not always possible to plan the memory requirements exactly in advance, and it is inefficient to reserve the maximum memory space each time just to be on the safe side. C and C++ offer the option to reserve memory areas during the program execution, i.e. at runtime. It is important that the reserved memory areas are released again at the "appropriate point" to avoid memory leaks. It is one of the major challenges in memory management to always locate this "appropriate point" though.
 
+To allocate dynamic memory on the heap means to make a contiguous memory area accessible to the program at runtime and to mark this memory as occupied so that no one else can write there by mistake.
 
+To reserve memory on the heap, one of the two functions malloc (stands for Memory Allocation) or calloc (stands for Cleared Memory Allocation) is used. The header file stdlib.h or malloc.h must be included to use the functions.
+
+malloc is used to dynamically allocate a single large block of memory with the specified size. It returns a pointer of type void which can be cast into a pointer of any form.
+
+calloc is used to dynamically allocate the specified number of blocks of memory of the specified type. It initializes each block with a default value '0'.
+
+Both functions return a pointer of type void which can be cast into a pointer of any form. If the space for the allocation is insufficient, a NULL pointer is returned.
+
+#### Malloc for arrays and strcuts
+
+```c++
+    int *p = (int*)malloc(3*sizeof(int));
+    p[0] = 1; p[1] = 2; p[2] = 3;
+    printf("address=%p, second value=%d\n", p, p[1]);
+```
+
+and for non-primitive types
+
+```c++
+struct MyStruct {
+    int i; 
+    double d; 
+    char a[5];
+};
+
+MyStruct *p = (MyStruct*)calloc(4,sizeof(MyStruct));
+p[0].i = 1; p[0].d = 3.14159; p[0].a[0] = 'a';
+
+```
+
+#### Freeing Up Memory
+
+If memory has been reserved, it should also be released as soon as it is no longer needed. If memory is reserved regularly without releasing it again, the memory capacity may be exhausted at some point. If the RAM memory is completely used up, the data is swapped out to the hard disk, which slows down the computer significantly.
+
+The free function releases the reserved memory area so that it can be used again or made available to other programs. To do this, the pointer pointing to the memory area to be freed is specified as a parameter for the function.
+
+Considerations:
+- free can only free memory that was reserved with malloc or calloc.
+- free can only release memory that has not been released before. Releasing the same block of memory twice will result in an error.
+- Memory allocated with malloc or calloc is not subject to the familiar rules of variables in their respective scopes. This means that they exist independently of block limits until they are released again or the program is terminated. However, the pointers which refer to such heap-allocated memory are created on the stack and thus only exist within a limited scope. As soon as the scope is left, the pointer variable will be lost - but not the heap memory it refers to.
+-
