@@ -1,0 +1,3 @@
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p3_memory_chatbot/src/CMakeFiles/rebuild_cache.dir
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p3_memory_chatbot/src/CMakeFiles/membot.dir
+/home/xuren/devprojects/cppdev/udacity-cpp-nd/p3_memory_chatbot/src/CMakeFiles/edit_cache.dir
